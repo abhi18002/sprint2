@@ -4,4 +4,5 @@
  WORKDIR /views
  COPY . .
  RUN yarn install --production
+ RUN npm i nodemon
  CMD ["node", "app.js"]
