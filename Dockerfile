@@ -4,6 +4,5 @@
  WORKDIR /
  COPY . .
  RUN yarn install --production
- RUN npm i nodemon
  RUN npm i mongodb
- CMD ["nodemon", "app.js"]
+ CMD ["node", "app.js"]
