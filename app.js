@@ -10,21 +10,23 @@ var mongoose = require('mongoose');
 var mongoDB = 'mongodb://127.0.0.1:27017/FacultyDB';
 var tempfac;
 
+var reserve = [{ name: "D Venkataraman", type: "Lab",slot:5,cap:67,date: 2021, status: "Pending"},{name : "C Arun Kumar", type : "Cabin", slot : 3, cap : 46, date : 2000, status : "Pending"}];
+var clist = [{name: "C Arun Kumar", request : "CHANGE MY SECOND PERIOD TO THE 5th PERIOD"},{ name: "D Venkataraman",request:"Change my 5th period to 2nd period "}];
+var cancel = [{name : "C Arun Kumar ", request : "Cancel Slot num  2  On 2", slot : 2, day : 2 },{name : "D Venkataraman", request : "Cancel Slot num  2  On 1", slot : 2,day : 1}]
+
 mongoose.connect(mongoDB, {useNewUrlParser: true, useUnifiedTopology: true});
 var db=mongoose.connection;
-// db.createCollection("freeslots");
-// db.createCollection("clist");
-// db.createCollection("cancel");
-// db.createCollection("reserve");
 
 var rooms =   db.collection("rooms");
 var request = db.collection("requests");
 var free = db.collection("freeslots");
 var faculty = db.collection("faculty");
+//
+// const clist = db.collection("clist");
+// const cancel = db.collection("cancel");
+// const reserve = db.collection("reserve");
 
-const clist = db.collection("clist");
-const cancel = db.collection("cancel");
-const reserve = db.collection("reserve");
+var room = [];
 
 
 
@@ -34,7 +36,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
 
 function freeS(){
-db.rooms.find().forEach((room) => {
+rooms.find().forEach((room) => {
   for (var i =0; i<6;i++){
     var y = room.availability[i];
     for (var j = 0; j<y.length;j++){
@@ -43,9 +45,10 @@ db.rooms.find().forEach((room) => {
                 cap : room.capacity,
                 type: room.roomtype,
                 day: i,
-                slot: j
+                slot: j,
+                tempfac:tempfac
         }
-        db.free.insertOne(o);
+      free.insertOne(o);
       }
     }
   }
@@ -78,9 +81,20 @@ res.render("log");
 });
 
 
+app.get("/oc",function(req,res){
+  var day = req.body.day;
+  var slot = req.body.slot;
+  var floor = req.body.floor;
+
+  res.render("oc",{day:day,slot:slot,floor:floor});
+});
 
 app.get("/occ",function(req,res){
-res.render("occ",{rooms:rooms});
+  rooms.find(function(err, facs){
+    facs.forEach(function(fac){
+room.push(fac);    });
+    });
+res.render("occ",{rooms:room});
 });
 
 
@@ -91,8 +105,9 @@ res.render("reserve");
 
 
 function val(res,o){
-
-res.render("admin",{adm:o,clist:clist,reserve:reserve,cancel:cancel});
+  tempfac = o;
+ freeS();
+res.render("adm",{adm:o,clist:clist,reserve:reserve,cancel:cancel,free:free});
 }
 
 function temp(res,o){
@@ -173,7 +188,7 @@ var y = {
 
 db.collection ("clist").insertOne(y);
 
-res.render("/time",{tempfac:tempfac});
+res.render("time",{tempfac:tempfac});
 });
 
 app.get("/cpass",function(req,res){

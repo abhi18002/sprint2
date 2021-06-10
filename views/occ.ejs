@@ -3,8 +3,6 @@
      <title>Occupancy Chart</title>
 
 <link rel="stylesheet" href="/css/occ.css">
-<% let seats = rooms %>
-
 
 <script>
 const container = document.querySelector('.container');
@@ -18,24 +16,24 @@ function updateSelectedCount() {
   var x = (selectedSeatsCount/24)*100;
 rate.innerText = x.toPrecision(2)+" %";
 }
+ var room =<%- JSON.stringify( rooms) %>;
 function displaySeats(){
   const floor = document.getElementById('floor');
   const day = document.getElementById('day');
   const slot = document.getElementById('slot');
-
  var count= 1;   var disp;
-
-let rooms = <%=seats%>;
-
+console.log(typeof (floor.value));
  switch(floor.value){
-    case 0:   disp = rooms.forEach(room => { room.floor === 0});    break;
-    case 1:  disp =  <%=rooms%>.forEach(room => {  room.floor === 1});   break;
-    case 2:   disp = <%=rooms%>.forEach(room => {  room.floor === 2 });  break;
-    case 3:   disp =  <%=rooms%>.forEach(room => {  room.floor === 3 });  break;
+    case '0':   disp =  room.find((rm) => { rm.floor === 0});
+                console.log(disp);
+                break;
+    case '1':   disp =  room.find(rm => {  rm.floor === 1});  break;
+    case '2':   disp =room.find(rm => {  rm.floor === 2 });  break;
+    case '3':   disp =  room.forEach(rm => {  rm.floor === 3 });  break;
 }
 var r = document.getElementById("row");
-var x ;
- disp.forEach((avail) => {  x+ = "  <div class='seat;' id ='"+avail.roomid+"' data-toggle='tooltip' data-placement='auto' title = '"+avail.roomid+"' ></div>"
+var x ="";
+ disp.forEach((avail) => {  x+= "  <div class='seat;' id ='"+avail.roomid+"' data-toggle='tooltip' data-placement='auto' title = '"+avail.roomid+"' ></div>"
  if (count % 8 == 0){
    x+= " </div><div class='row'>"
  }
@@ -95,7 +93,6 @@ updateSelectedCount();
     <option value="7">Discussion hour   - 05:00 PM  - 06:00PM</option>
   </select>
 <br>
-
 <input type="button" name="det" onclick="displaySeats()" value="See Chart">
 </div>
 

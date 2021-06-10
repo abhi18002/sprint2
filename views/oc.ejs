@@ -1,0 +1,101 @@
+<link rel="stylesheet" href="/css/occ.css">
+
+<div class="movie-container" id ="cl">
+  <label>Pick a FLOOR:</label>
+  <select id="movie" required onchange="fun()">
+    <option value="00">Select </option>
+    <option value="1">GROUND </option>
+    <option value="2">FIRST</option>
+    <option value="3">SECOND</option>
+  </select>
+  &nbsp; &nbsp; &nbsp;
+
+  <label>Pick a Day:</label>
+  <select id="day" required onchange="fun()">
+    <option value="00">Select </option>
+
+    <option value="1">Monday </option>
+    <option value="2">Tuesday</option>
+    <option value="3">Wednesday</option>
+    <option value="4">Thursday</option>
+    <option value="5">Friday</option>
+    <option value="6">Saturday</option>
+  </select>
+  &nbsp;
+  &nbsp; &nbsp;
+
+  <label>Pick a Slot:</label>
+  <select id="slot" required onchange="fun()">
+    <option value="00">Select </option>
+
+    <option value="1">First  - 8:30 AM -9:20 AM </option>
+    <option value="2">Second - 9:20 AM  - 10:10 AM</option>
+    <option value="3">Third  - 10:20 AM  - 11:10 AM</option>
+    <option value="4">Fourth - 11:10 AM  - 12:00 PM </option>
+    <option value="5">Fifth  - 2:00 PM - 2:50 PM</option>
+    <option value="6">Sixth  - 2:50 PM - 3:40 PM</option>
+    <option value="7">Lab1   - 8:30 AM -10:10 AM </option>
+    <option value="8">Lab2   - 10:20 AM  - 12:00PM</option>
+    <option value="9">Lab3   - 2:00 PM - 3:40 PM</option>
+  </select>
+
+</div>
+
+<ul class="showcase">
+  <li>
+    <div class="seat"></div>
+    <small>N/A</small>
+  </li>
+  <li>
+    <div class="seat selected"></div>
+    <small>Selected</small>
+  </li>
+  <li>
+    <div class="seat occupied"></div>
+    <small>Occupied</small>
+  </li>
+</ul>
+
+<div class="container" id="def">
+  <div class="screen" id="screen"></div>
+
+  <div class="row">
+    <div class="seat" id="1" data-toggle="tooltip" data-placement="auto" title="Cabin 1"></div>
+    <div class="seat"  id="2" data-toggle="tooltip" data-placement="auto" title="Room 1"></div>
+    <div class="seat"id="3" data-toggle="tooltip" data-placement="auto" title="Room 2"></div>
+    <div class="seat"id="4" data-toggle="tooltip" data-placement="auto" title="Lab 1"></div>
+    <div class="seat"id="5" data-toggle="tooltip" data-placement="auto" title="Lab 2"></div>
+    <div class="seat"id="6" data-toggle="tooltip" data-placement="auto" title="Room 3"></div>
+    <div class="seat"id="7" data-toggle="tooltip" data-placement="auto" title="Room 4"></div>
+    <div class="seat"id="8" data-toggle="tooltip" data-placement="auto" title="Cabin 2"></div>
+  </div>
+  <div class="row">
+    <div class="seat"id="9" data-toggle="tooltip" data-placement="auto" title="Cabin 3"></div>
+    <div class="seat"id="10" data-toggle="tooltip" data-placement="auto" title="Room 5"></div>
+    <div class="seat"id="11" data-toggle="tooltip" data-placement="auto" title="Room 6"></div>
+    <div class="seat "id="12" data-toggle="tooltip" data-placement="auto" title="Lab 3"></div>
+    <div class="seat "id="13" data-toggle="tooltip" data-placement="auto" title="Lab 4"></div>
+    <div class="seat"id="14" data-toggle="tooltip" data-placement="auto" title="Room 7"></div>
+    <div class="seat"id="15" data-toggle="tooltip" data-placement="auto" title="Room 8"></div>
+    <div class="seat"id="16" data-toggle="tooltip" data-placement="auto" title="Cabin 4"></div>
+  </div>
+  <div class="row">
+    <div class="seat"id="17" data-toggle="tooltip" data-placement="auto" title="Cabin 5"></div>
+    <div class="seat"id="18" data-toggle="tooltip" data-placement="auto" title="Room 9"></div>
+    <div class="seat"id="19" data-toggle="tooltip" data-placement="auto" title="Room 10"></div>
+    <div class="seat"id="20" data-toggle="tooltip" data-placement="auto" title="Lab 5"></div>
+    <div class="seat"id="21" data-toggle="tooltip" data-placement="auto" title="Lab 6"></div>
+    <div class="seat"id="22" data-toggle="tooltip" data-placement="auto" title="Room 11"></div>
+    <div class="seat "id="23" data-toggle="tooltip" data-placement="auto" title="Room 12"></div>
+    <div class="seat "id="24" data-toggle="tooltip" data-placement="auto" title="Cabin 6"></div>
+  </div>
+
+</div>
+
+<p class="text">
+NO. OF ROOMS OCCUPIED: <span id="count">0</span><br><br> OCCUPANCY RATE: <span id="rate">0 %</span>
+</p>
+
+<script src="/js/occ.js"></script>
+
+<%- include("partial/footer.ejs") -%>
