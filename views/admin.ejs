@@ -1,0 +1,162 @@
+<%- include("partial/header.ejs") -%>
+
+    <link rel="stylesheet" href="/css/admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.13.4/extensions/auto-refresh/bootstrap-table-auto-refresh.css">
+<h1>Welcome Admin</h1>
+<div class="place">
+  <a href="/set">Settings</a>
+  <a href="/">LogOut</a>
+</div>
+<div> <div id="overlay" onclick="off()"><div id="text"></div>
+<select class="free" name="">
+</select>
+</div>
+
+<div id="ttchange" class="tabcontent">
+  <table class="table table-hover" data-auto-refresh-silent="true">
+                          <thead >
+                              <tr>
+                                  <th scope="col">#</th>
+                                  <th scope="col">Faculty</th>
+                                  <th scope="col">Request</th>
+                          </thead>
+                          <tbody>
+                          <% var i =0; for (const item in clist) { if(item.status === "Pending"){%>
+                            <tr>
+                                <th scope="row"><%=item.id%></th>
+                                <td><%=item.name%></td>
+                                <td><%= item.request.slice(0,10);%> </td>
+                                <td><a type="button" id="<%=i%>" class="btn btn-info" onclick="on(this.id)">Review</a></td>
+                                <td><button type="button"id="<%=i+1%>" class="btn btn-success"
+                                  onclick="this.disabled=true;this.innerHTML='Accepted';$(this).parents('tr').find('button').prop( 'disabled', true );<%item.status = 'Accepted';%>">Accept</button></td>
+                                <td><button type="button"id="<%=i+2%>"class="btn btn-danger" onclick="$(this).closest('tr').remove();<%item.status = 'Declined';%>">Decline</button></td>
+                            </tr>
+                            <% }} %>
+                          </tbody>
+                      </table>
+</div>
+
+<div id="cancelled" class="tabcontent">
+  <table  class="table table-hover">
+  <thead >
+      <tr>
+          <th scope="col">#</th>
+          <th scope="col">Faculty</th>
+          <th scope="col">Request</th>
+          <th scope="col"></th>
+          <th scope="col"></th>
+          <th scope="col"></th>
+      </tr>
+  </thead>
+  <tbody>
+    <% var i = 10;for (const item in cancel) { if(item.status === "Pending"){ %>
+      <tr>
+          <th scope="row"><%=item.id%></th>
+          <td><%=item.name%></td>
+          <td><%= item.request.slice(0,10);%></td>
+          <td><a type="button" id="<%=i%>" class="btn btn-info" onclick="on(this.id)">Review</a></td>
+          <td><button type="button"id="<%=i+1%>" class="btn btn-success"
+            onclick="this.disabled=true;this.innerHTML='Accepted';$(this).parents('tr').find('button').prop( 'disabled', true );<%item.status = 'Accepted';%>">Accept</button></td>
+          <td><button type="button"id="<%=i+2%>"class="btn btn-danger" onclick="$(this).closest('tr').remove();<%item.status = 'Declined';%>">Decline</button></td>
+      </tr>
+      <% }} %>
+
+  </tbody>
+</table>
+</div>
+
+<div id="reserved" class="tabcontent">
+  <table  class="table table-hover">
+  <thead >
+      <tr>
+          <th scope="col">#</th>
+          <th scope="col">Faculty</th>
+          <th scope="col">Request</th>
+          <th scope="col"></th>
+          <th scope="col"></th>
+          <th scope="col"></th>
+      </tr>
+  </thead>
+  <tbody>
+    <% var i = 20;for (const item in reserve) { if(item.status === "Pending"){ %>
+      <tr>
+          <th scope="row"><%=item.id%></th>
+          <td><%=item.name%></td>
+          <td><%= item.request.slice(0,10);%></td>
+          <td><a type="button" id="<%=i%>" onclick='on(this.id);'class="btn btn-info">Review</a></td>
+          <td><button type="button"id="<%=i+1%>" class="btn btn-success"
+    onclick="this.disabled=true;this.innerHTML='Accepted';$(this).parents('tr').find('button').prop( 'disabled', true );<%item.status = 'Accepted';%> ">Accept</button></td>
+          <td><button type="button"id="<%=i+2%>"class="btn btn-danger" onclick="$(this).closest('tr').remove();<%item.status = 'Declined';%>">Decline</button></td>
+      </tr>
+      <% }} %>
+  </tbody>
+</table>
+</div>
+
+
+<button class="tablink" onclick="openT('ttchange', this)" id="defaultOpen">Timetable Change Requests</button>
+<button class="tablink" onclick="openT('cancelled', this)"> Cancelled Reservations </button>
+<button class="tablink" onclick="openT('reserved', this)">Reservation List</button>
+
+<script>
+function openT(click,elmnt) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+}
+  document.getElementById(click).style.display = "block";
+}
+
+document.getElementById("defaultOpen").click();
+
+
+function on(x){
+  var y = Math.floor(x/10);
+  x = x%10;
+  var n,obj;
+
+ switch(y){
+  case 0:
+    obj = JSON.stringify(<%-clist%>);
+          break;
+  case 1:     obj = JSON.stringify(<%-cancel%>);
+
+          break;
+  case 2 :     obj = JSON.stringify(<%-reserve%>);
+
+          break;
+}
+ n = obj.find(o=> o.id === x);
+     document.getElementById("text").innerHTML = "<strong>Faculty Name:</strong>"+ n.name +"<br> <strong>Request:</strong><br>"+ n.request;
+  document.getElementById("overlay").style.display = "block";
+
+}
+function off() {
+  document.getElementById("overlay").style.display = "none";
+}
+
+function freeS(){
+rooms.forEach((room) => {
+  for (var i =0; i<6;i++){
+    var y = room.availability[i];
+    for (var j = 0; j<y.length;j++){
+      if( y[j] == 0 ){
+        var o = {  room: room.roomid,
+                cap : room.capacity,
+                type: room.roomtype,
+                day: i,
+                slot: j
+        }
+        db.free.insertOne(o);
+      }
+    }
+  }
+});
+
+}
+
+</script>
+
+
+    <%- include("partial/footer.ejs") -%>

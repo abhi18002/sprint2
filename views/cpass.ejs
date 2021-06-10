@@ -1,0 +1,65 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"> </script>
+
+<link rel="stylesheet" href="/css/cpass.css">
+
+<div id="box">
+  <form id="form" method="get"action="/set" autocomplete="off">
+  <h1>Change Password <span>Choose a good one!</span></h1>
+  <form>
+    <p>
+      <input type="password" value="" placeholder="Enter Password" id="p" class="password">
+      <button class="unmask" type="button"></button>
+    </p>
+<p>
+
+       <input type="password" value="" placeholder="Confirm Password" id="p-c" class="password">
+        <button class="unmask" type="button"></button>
+
+</p>
+
+    <div id="strong"><span></span></div>
+    <div id="valid"></div>
+  Must be 6+ characters long and contain at least 1 upper case letter, 1 number, 1 special character <br>
+
+<button type="submit" name="button" id="save" disabled>Change</button>
+</form>
+</div>
+
+<script>
+
+  $('.unmask').on('click', function(){
+    if($(this).prev('input').attr('type') == 'password')
+      $(this).prev('input').prop('type', 'text');
+    else
+      $(this).prev('input').prop('type', 'password');
+    return false;
+  });
+
+  $('.password').on('mouseup',function (){
+    var p_c = $('#p-c');
+    var p = $('#p');
+   if(p.val().length > 0){
+    if(p.val() != p_c.val()) {
+      $("#save").attr("disabled",true);
+      $('#valid').html("Passwords Don't Match");
+
+    } else {
+       $('#valid').html('');
+       $("#save").attr("disabled",false);
+    }
+      var s = 'weak'
+
+  if(p.val().length > 5 && p.val().match(/\d+/g))
+    s = 'medium';
+  if(p.val().length > 6 && p.val().match(/[^\w\s]/gi))
+    {
+      s = 'strong';
+    }
+
+     $('#strong span').addClass(s).html(s);
+    }
+  });
+
+</script>
+
+<%-include("partial/footer.ejs")-%>

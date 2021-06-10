@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Request time table change</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+body {
+  background:black;
+
+}
+
+h1{
+color:goldenrod;
+margin-left:470px;
+}
+
+textarea {
+  width: 450%;
+  padding: 12px;
+  border: 2px solid #564c4d;
+  background-color:#aaaaaa;
+  border-radius: 10px;
+  resize: vertical;
+  margin-left:-20px;
+  margin-top:30px;
+}
+
+
+
+.hbutton{
+  display: inline-block;
+  border-radius:10px;
+  background-color: black;
+  color: goldenrod;
+  border: 2px solid goldenrod;
+
+  text-align: center;
+  font-family:'Bold';
+  font-size: 18px;
+  padding: 10px;
+  width: 120px;
+  transition: all 0.5s;
+  cursor: pointer;
+}
+
+
+.hbutton:hover {
+  background-color: goldenrod;
+  color: black;
+}
+
+.button2{
+  float:right;
+margin-top:-50px;
+}
+
+
+#info{
+font-size:20px;
+color:goldenrod;
+text-align:center;
+}
+
+form
+{
+margin-left: 400px;
+width: 100px;
+
+}
+
+.button1{
+  display: inline-block;
+  border-radius:10px;
+  background-color: #000000;
+  color: goldenrod;
+  text-align: center;
+  font-family:'Bold';
+  border: 2px solid goldenrod;
+  font-size: 18px;
+  padding: 10px;
+  width: 120px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin-left:150px;
+  margin-top:30px;
+
+}
+
+.button1:hover{
+	background-color:goldenrod;
+	color: #000000;
+
+}
+
+</style>
+</head>
+<body>
+
+<h1>Request Your  Changes</h1>
+<a href="/" class="hbutton button2">LogOut</a>
+<p id="info">Any changes in your timetable,which you want to be reflected here must be typed and sent as a request.<br>This is done so that unnecessary confusions are avoided.</p>
+<form action="/sub" method="post">
+
+  <textarea name="changes" rows="10" id="req" cols="50" placeholder="Type Here.."></textarea>
+  <input type="submit" name="go" class="button1" value="Request">
+
+</form>
+</body>
+
+</html>

@@ -1,0 +1,63 @@
+<%- include("partial/header.ejs") -%>
+<style media="screen">
+  body,
+  html {
+    background-repeat: no-repeat;
+    background-image: url("/img/cancel.jpg");
+    background-position: cover;
+    overflow-x: hidden;
+    font-size:1.2em;
+  }
+
+  .can{
+
+    margin-left:40%;
+    margin-top:5%;
+    height: 450px;
+    width: 100%;
+  }
+</style>
+
+
+<h1>CANCEL PERIODS</h1>
+
+<div class="can">
+
+  <form class="" action="/cancel" method="post">
+
+    <label>Pick a Day:</label> &nbsp;&nbsp;&nbsp;&nbsp;
+    <select id="day" name="day" required>
+      <option value="00">Select </option>
+
+      <option value="0">Monday </option>
+      <option value="1">Tuesday</option>
+      <option value="2">Wednesday</option>
+      <option value="3">Thursday</option>
+      <option value="4">Friday</option>
+      <option value="5">Saturday</option>
+    </select>
+
+    <br> <br> <br>
+    <label>Pick a Slot:</label>&nbsp;&nbsp;&nbsp;&nbsp;
+    <select id="slot" name="slot" required>
+      <option value="00">Select </option>
+      <option value="0">First - 8:50 AM -9:40 AM </option>
+      <option value="1">Second - 9:50 AM - 10:40 AM</option>
+      <option value="2">Third - 11:00 AM - 11:50 AM</option>
+      <option value="3">Fourth - 12:00 PM - 12:50 PM </option>
+      <option value="4">Fifth - 2:00 PM - 2:50 PM</option>
+      <option value="5">Sixth - 2:50 PM - 3:40 PM</option>
+      <option value="6">Seventh - 3:50 PM -04:40 PM </option>
+      <option value="7">Discussion hour - 05:00 PM - 06:00PM</option>
+    </select>
+<br> <br> <br>
+
+
+    <input type="submit" name="" class="btn btn-dark" value="CONFIRM">
+  </form>
+
+</div>
+
+
+
+<%- include("partial/footer.ejs") -%>

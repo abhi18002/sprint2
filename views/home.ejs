@@ -1,0 +1,188 @@
+<%- include("partial/header.ejs") -%>
+<!-- <link rel="stylesheet" href="css/home.css"> -->
+<style>
+  html body {
+    margin: 0;
+    font-family: Arial;
+    background-color: #13274c;
+    overflow: hidden;
+  }
+
+  .topnav {
+    overflow: hidden;
+    /* background-color:  ; */
+
+    /* background-color: #333; */
+  }
+
+  a:hover {
+    text-shadow: 0 0 10px silver;
+  }
+
+  .topnav a {
+    float: left;
+    display: block;
+    color: blue;
+    text-align: center;
+    padding: 10px 10px;
+    margin-right: 15px;
+    text-decoration: none;
+    font-size: 17px;
+
+  }
+
+  .dropdown {
+    margin-left: 0;
+    float: right;
+  }
+
+  .topnav .icon {
+    display: none;
+  }
+
+
+
+  @media screen and (max-width: 600px) {
+
+    .topnav a:not(:first-child),
+    .dropdown .dropbtn {
+      display: none;
+    }
+
+    .topnav a.icon {
+      float: right;
+      display: block;
+    }
+  }
+
+  @import url('https://fonts.googleapis.com/css?family=Source+Code+Pro');
+
+  p {
+    white-space: nowrap;
+    overflow: hidden;
+    font-family: 'Source Code Pro', monospace;
+    font-size: 25px;
+    /* color: rgba(255,255,255,.75); */
+    background: #b2d3c2;
+  }
+
+  p:nth-child(1) {
+    background-color: #b2d3c2;
+    animation: animated-text 1s steps(100, end) 1s 1 normal both;
+  }
+
+  @keyframes animated-text {
+    from {
+      width: 0;
+    }
+
+    to {
+      width: 100%;
+    }
+  }
+
+
+  .container {
+    direction: ltr;
+    width: 100%;
+
+    background: #b2d3c2;
+  }
+
+  @media screen and (max-width: 600px) {
+    .topnav.responsive {
+      position: relative;
+    }
+
+    .topnav.responsive .icon {
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+
+    .topnav.responsive a {
+      float: none;
+      display: block;
+      text-align: left;
+    }
+
+    .topnav.responsive .dropdown {
+      float: none;
+    }
+
+    .topnav.responsive .dropdown-content {
+      position: relative;
+    }
+
+    .topnav.responsive .dropdown .dropbtn {
+      display: block;
+      width: 100%;
+      text-align: left;
+    }
+  }
+
+  span {
+    font-size: 1.3em;
+  }
+</style>
+<svg xmlns="http://www.w3.org/2000/svg"style="position:fixed; z-index:-1;float: right;" viewBox="0 0 1440 320"><path fill="#1cac74" fill-opacity="1" d="M0,288L1440,192L1440,0L0,0Z"></path></svg>
+
+
+<div class="topnav" id="myTopnav">
+  <a href="/" class="active">
+
+    <div class="container" style="margin-left:0">
+      <p>Amrita Classroom Booking </p>
+    </div>
+  </a>
+  <div class="dropdown">
+    <a href="/contact"><span>Contact</span></a>
+    <a href="/about"><span>About</span></a>
+    <a href="/log"><span>Log In</span></a>
+    <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
+  </div>
+
+  <br><br><br><br><br>
+  <div id="show" hidden>
+
+    <h4 style="color:white;  text-align:center;margin-left:150px;padding:25px; width:75%">This portal caters to the internal requirements of staff and students in the campus. It gives access to all the services hosted as part of the IT Services in
+      the campus. Users can also get information on various activities in the campus.
+
+      The Information and Communication Technology Services (ICTS) Department is responsible for identifying, providing and maintaining reliable computing facilities, computing network environment, communication facilities and related infrastructure
+      to facilitate education, research, instructional and Institute approved business services.
+      <br><br>
+      The department administers all computer laboratories in the campus. The facilities are made available to the staff and students from 8.00 AM to 10.30 PM on all days excluding national holidays. The laboratories extend all facilities required by
+      students to fulfill their requirements for academic purposes. The department staff in these labs also assists students in their academic work. All staff rooms are also equipped with sufficient computers to help faculty to carry out their
+      day-to-day academic requirements and also to help them in their research activities.
+      <br><br>
+      At locations where wireless connectivity is essential, Wi-Fi hotspots have been setup to allow users to connect to the campus network over wireless links.
+
+      Network cabling within a laboratory or a block is designed and implemented using the structured cabling approach. This allows flexibility and scalability for expansions in the future.
+
+      <br>
+      <br>
+    </h4>
+    <br>
+  </div>
+
+
+  <script>
+    function myFunction() {
+      var x = document.getElementById("myTopnav");
+      if (x.className === "topnav") {
+        x.className += " responsive";
+      } else {
+        x.className = "topnav";
+      }
+    }
+
+    $(document).ready(function() {
+      setTimeout(function() {
+        document.getElementById("show").removeAttribute("hidden");
+      }, 2700);
+    });
+  </script>
+
+
+
+  <%- include("partial/footer.ejs") -%>

@@ -1,0 +1,75 @@
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"> </script>
+  <link rel="stylesheet" href="/css/res.css">
+
+  <link href='https://fonts.googleapis.com/css?family=Raleway:400,100,200,200italic,300,100italic,400italic,500,700' rel='stylesheet' type='text/css'>
+</head>
+<body>
+  <div class="lead">
+    <h1>Make a Reservation</h1>
+  </div>
+  <div class="container">
+    <form action="/noti" method="post">
+      <div class="first-group">
+        <label for="first">ROOM TYPE:</label>
+         <select id="first" name="first">
+           <option value="Class Room">Class Room</option>
+           <option value="Lab">Labs</option>
+           <option value="Cabinet">Cabinet</option>
+
+  </select>
+</div>
+  <div class="first-group">
+
+  <label for="first">SLOT:</label>
+   <select id="first" name="second">
+
+       <option value="1">First  - 8:30 AM -9:20 AM </option>
+       <option value="2">Second - 9:20 AM  - 10:10 AM</option>
+       <option value="3">Third  - 10:20 AM  - 11:10 AM</option>
+       <option value="4">Fourth - 11:10 AM  - 12:00 PM </option>
+       <option value="5">Fifth  - 2:00 PM - 2:50 PM</option>
+       <option value="6">Sixth  - 2:50 PM - 3:40 PM</option>
+       <option value="7">Lab1   - 8:30 AM -10:10 AM </option>
+       <option value="8">Lab2   - 10:20 AM  - 12:00PM</option>
+       <option value="9">Lab3   - 2:00 PM - 3:40 PM</option>
+</select>
+
+      </div>
+      <div  class="last-group">
+
+        <label for="last">CAPACITY: </label>
+        <input id="last" name="cap" type="number" min="30" max="200" required/>
+      </div>
+      <div class="vac-group">
+        <label for="when">DATE:</label>
+        <input id="when" name="date"type="date" placeholder="dd/mm/yyyy"required />
+      </div>
+      <div class="row">
+        <button type="submit">
+            Reserve your spot!
+        </button>
+      </div>
+    </form>
+  </div>
+  <script>
+ //    $(document).ready(function () {
+ //
+ // // Data Picker Initialization
+ //   let $input = $('.datepicker').pickadate();
+ //   let picker = $input.pickadate('picker');
+ //   let date = new Date(1999, 1, 23);
+ //   picker.set('select', date);
+ //
+ // });
+ $(function () {
+   var yesterday = new Date((new Date()).valueOf()-1000*60*60*24);
+
+   $('#when').pickadate({
+     disable: [
+       { from: [0,0,0], to: yesterday }
+     ]
+   });
+});
+  </script>
+</body>

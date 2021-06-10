@@ -1,0 +1,91 @@
+html body {
+  margin: 0 auto;
+  cursor: crosshair;
+  background-color: #82eefd;
+}
+
+#dark {
+  background-color: black;
+}
+
+.log {
+  position: absolute;
+  padding: 60px;
+  width: 25%;
+  height: 45%;
+  background: none;
+  color: white;
+}
+
+form {
+  margin: 100px;
+}
+
+.input-field {
+  position: relative;
+  margin-left: -30px;
+  width: 400px;
+  height: 150px;
+  line-height: 40px;
+}
+
+.fa {
+  padding: 20px;
+  text-align: center;
+  margin-left: 0;
+  width: 300px;
+}
+
+.blink {
+  animation: blinking 2.2s infinite;
+}
+
+@keyframes blinking {
+  0% {
+    color: white;
+  }
+
+  49% {
+    color: white;
+  }
+
+  60% {
+    color: transparent;
+  }
+
+  99% {
+    color: transparent;
+  }
+
+  100% {
+    color: white;
+  }
+}
+
+hr {
+  margin: 0;
+  height: 15px;
+  background-color: white;
+  margin-left: -90px;
+}
+
+label {
+  position: absolute;
+  top: -20px;
+  left: 0;
+  width: 100%;
+  color: white;
+  transition: 0.2s all;
+  cursor: text;
+}
+
+input {
+  width: 100%;
+  border: 0;
+  outline: 0;
+  padding: 0.25rem 0;
+  border-bottom: 2px solid;
+  background: none;
+  box-shadow: none;
+  color: #111;
+}

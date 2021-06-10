@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Timetable</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+
+body{
+background:linear-gradient(rgba(255,255,255,.2), rgba(255,255,255,.2)), url("/img/bg.jpg") no-repeat;
+background-size: cover;
+}
+
+h1{
+color:#FFC2D6;
+margin-left:425px;
+}
+
+.button{
+  display: inline-block;
+  border-radius: 0 10px;
+  background-color: grey;
+  border: none;
+  color: #FFC2D6;
+  text-align: center;
+  font-family:'Bold';
+  font-size: 18px;
+  padding: 15px;
+  width: 220px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin-left: 150px;
+  margin-top:80px;
+}
+
+
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button:hover span {
+  padding-right: 25px;
+}
+
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+div{
+  float: left;
+  margin-right: 50px;
+}
+
+</style>
+</head>
+<script>
+  function fun(){
+    document.getElementById('img1').style.display='block';
+  }
+</script>
+<body>
+
+<h1>TimeTable And Occupancy Chart</h1>
+<div>
+
+<button class="button " id="button2" style="vertical-align:middle" onclick="location.href = '/reqC';"><span>Edit TimeTable</span></button>
+<br></br>
+<button class="button" id="button3" style="vertical-align:middle" onclick="location.href = '/cancel';"><span>Cancel Periods</span></button>
+<br></br>
+<button class="button " id="button4" style="vertical-align:middle" onclick="location.href = '/occ';"><span>Occupancy Chart</span></button>
+</div>
+
+<div class="disp">
+  <iframe src="https://intranet.cb.amrita.edu/TimeTable/Faculty/PDF/2020_21/E/2020_21_E_<%=tempfac.empno%>.pdf" id="img1" height="600" width="1000" alt="TimeTable"></iframe>
+</div>
+
+</body>
+</html>

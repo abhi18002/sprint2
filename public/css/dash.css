@@ -1,0 +1,137 @@
+html body {
+  margin: 0 auto;
+  cursor: crosshair;
+  background: #9ba5b5;
+}
+
+h1{
+float: left;}
+ul {
+    list-style-type:none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #111;
+
+  }
+  h2{
+    margin-left: 500px;
+    margin-top: -150px;
+  }
+  @import "https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css";
+
+
+  a {
+    font-size: 14px;
+    text-decoration: none;
+    outline: 0;
+  }
+
+  .circle,
+  .ring {
+    height: 256px;
+    position: relative;
+    width: 256px;
+  }
+
+  .circle {
+    margin-left: 5%;
+    margin-top: 20px;
+
+  }
+
+  .ring {
+    background-color: rgba(0,0,0,0.5);
+    border-radius: 50%;
+    opacity: 0;
+
+    -webkit-transform-origin: 50% 50%;
+    -moz-transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
+
+    -webkit-transform: scale(0.1) rotate(-270deg);
+    -moz-transform: scale(0.1) rotate(-270deg);
+    transform: scale(0.1) rotate(-270deg);
+
+    -webkit-transition: all 0.4s ease-out;
+    -moz-transition: all 0.4s ease-out;
+    transition: all 0.4s ease-out;
+  }
+.log{
+  margin-left: 900px;
+  margin-top: 30px;
+}
+  .open .ring {
+    opacity: 1;
+
+    -webkit-transform: scale(1) rotate(0);
+    -moz-transform: scale(1) rotate(0);
+    transform: scale(1) rotate(0);
+  }
+
+  .center {
+    background-color: rgba(255,255,255,0.3);
+    border-radius: 50%;
+    border: 2px solid #ffffff;
+    bottom: 0;
+    color: white;
+    height: 80px;
+    left: 0;
+    line-height: 80px;
+    margin: auto;
+    position: absolute;
+    right: 0;
+    text-align: center;
+    top: 0;
+    width: 80px;
+
+    -webkit-transition: all 0.4s ease-out;
+    -moz-transition: all 0.4s ease-out;
+    transition: all 0.4s ease-out;
+  }
+
+  .open .center {
+    border-color: #aaaaaa;
+  }
+
+  .menuItem {
+    border-radius: 50%;
+    color: #eeeeee;
+    display: block;
+    height: 40px;
+    line-height: 40px;
+    margin-left: -20px;
+    margin-top: -20px;
+    position: absolute;
+    text-align: center;
+    width: 40px;
+  }
+.bubbles {
+display: inline-block;
+font-family: Helvetica, Arial, Verdana, Tahoma, sans-serif;
+position: relative;
+}
+.bubbles h1 {
+position: relative;
+font-family: 'Luckiest Guy', cursive;
+color: #fff;
+z-index: 0.5;
+margin: 0.6em 0 0;
+}
+.individual-bubble {
+position: absolute;
+border-radius: 100%;
+bottom: 10px;
+background-color: #fff;
+z-index: 0.5;
+}
+
+
+  .avatar {
+    margin-top:0;
+    vertical-align: middle;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+
+  }
