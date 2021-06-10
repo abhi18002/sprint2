@@ -77,122 +77,122 @@ temp=chart[x];
     case (value>=111 && value <117):
     {
       disp(temp,value);
-      break;
+      
     }
     case (value>=121 && value <127):
       {
         disp(temp,value);
-        break;
+        
       }
     case (value>=141 && value <147):
     {
       disp(temp,value);
-      break;
+      
     }
     case (value>=131 && value <137):
     {
       disp(temp,value);
-      break;
+      
     }
     case (value>=161 && value <167):
     {
       disp(temp,value);
-      break;
+      
     }
     case (value>=151 && value <157):
     {
       disp(temp,value);
-      break;
+      
     }
     case (value>=221 && value <227):
     {
       disp(temp,value);
-      break;
+      
     }
     case (value>=211 && value <217):
     {
       disp(temp,value);
-      break;
+      
     }
     case (value>=241 && value <247):
     {
       disp(temp,value);
-      break;
+      
     }
     case (value>=231 && value <237):
     {
       disp(temp,value);
-      break;
+      
     }
     case (value>=251 && value <257):
     {
       disp(temp,value);
-      break;
+      
     }
     case (value>=261 && value <267):
     {
       disp(temp,value);
-      break;
+      
     }
     case (value>=311 && value <317):
     {
       disp(temp,value);
-      break;
+      
     }
     case (value>=331 && value <337):
     {
       disp(temp,value);
-      break;
+      
     }
     case (value>=341 && value <347):
     {
       disp(temp,value);
-      break;
+      
     }
     case (value>=321 && value <327):
     {
       disp(temp,value);
-      break;
+      
     }
     case (value>=361 && value <367):
     {
       disp(temp,value);
-      break;
+      
     }
     case (value>=351 && value <357):
     {
       disp(temp,value);
-      break;
+      
     }
     case (value>=127 && value <130):
     {
       disp(temp,value);
-      break;
+      
     }
     case (value>=117 && value <120):
     {
       disp(temp,value);
-      break;
+      
     }
     case (value>=137 && value <140):
     {
       disp(temp,value);
-      break;
+      
     }
     case (value>=157 && value <160):
     {
       disp(temp,value);
-      break;
+      
     }
     case (value>=147 && value <150):
     {
       disp(temp,value);
-      break;
+      
     }
     case (value>=167 && value <170):
     {
       disp(temp,value);
-      break;
+      
     }
   }
 }
