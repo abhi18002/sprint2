@@ -4,15 +4,21 @@
 
 <h1>Welcome Admin</h1>
 <div class="place">
-  <a href="/sett">Settings</a>
+  <a href="/set">Settings</a>
   <a href="/">LogOut</a>
 </div>
 
  <div id="overlay" onclick="off()"><div id="text">
 <select class="free" name="">
-  <% free.find(function(err, facs){ facs.forEach(function(item) { %>
-    <option value=""> <%=item.roomid%>+","+<%= item.roomtype%> </option>
-  <%}); });%>
+  <option value="00">Select</option>
+  <option value="00">11</option>
+  <option value="00">13</option>
+  <option value="00">113</option>
+  <option value="00">206</option>
+
+  <% free.forEach((item) => { %>
+    <option value=""> <%=item.roomid%> </option>
+  <%});%>
 </select>
 <button type="button" name="button">Confirm Select</button>
 </div>
@@ -125,7 +131,7 @@ function on(){
 
 }
 function off() {
-  document.getElementById("overlay").style.display = "none";
+  setTimeout( function(){ document.getElementById("overlay").style.display = "none"}, 5000 );
 }
 </script>
 

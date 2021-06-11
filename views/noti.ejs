@@ -8,11 +8,12 @@
 float:left;
 margin-top: 50px;
 margin-left:60px;
-
 }
+
 html{
   background: grey;
 }
+
 .title {
   color: grey;
   font-size: 18px;
@@ -36,20 +37,19 @@ a {
   font-size: 22px;
   color: black;
 }
-.log{
-  color:white;
-  margin-top:-150px;
-  margin-left:900px;
-  width:50px;
-}
+
 button:hover, a:hover {
   opacity: 0.7;
 }
 </style>
-  <a style="margin-left:-50px;" href="/occ" >Occupancy chart</a>&nbsp; &nbsp;&nbsp;
-  <a style="margin-left:900px"href="/">LogOut</a>
+<h1>NOTIFICATIONS</h1>
 
-<%  var count=1;requests.forEach(function(reqs){ %>
+  <a  href="/oc">Occupancy chart</a>&nbsp; &nbsp;&nbsp;
+  <a href="/">LogOut</a>
+<br>
+<br>
+<br>
+<%  var count=1;reserve.forEach(function(reqs){ %>
 
 <div class="card">
   <h1>REQUEST <%=count%></h1>
@@ -57,7 +57,7 @@ button:hover, a:hover {
   <p>SLOT <%=reqs.slot%></p>
   <p>DATE <%=reqs.date%></p>
   <p>CAPACITY <%=reqs.cap%></p>
-  <p>STATUS <%=reqs.stat%></p>
+  <p>STATUS <%=reqs.status%></p>
   <p><button onclick="">Cancel</button></p>
 </div>
 <div class="gap">

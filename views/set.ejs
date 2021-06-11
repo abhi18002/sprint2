@@ -12,7 +12,7 @@
   <br><br>
 </div>
 
-<h2><a class="btn rounded-lg border border-secondary" href='/cpass'> Change Password </a></h2>
+<h2><a class="btn rounded-lg border border-secondary" href='/cpass'> Change Password </a> <a class="btn rounded-lg border border-secondary" href='/time'> TimeTable </a></h2>
 
 
 <div class="not">
@@ -25,14 +25,14 @@
   <br> <br>
   <h3>Details</h3>
   <label for="email">Change email: &nbsp;
-  </label><input type="email" id="email" value="saads@email.com" disabled>
+  </label><input type="email" id="email" value="<%=tempfac.email%>"" disabled>
   <br>
 
   <label for="phn">Change Mobile number: &nbsp;
-  </label><input type="number" min="10" id="phn" value="9326757210" disabled>
+  </label><input type="number" min="10" id="phn" value="<%=tempfac.phone%>" disabled>
   <br>
 
-  <button type="button" class="btn border-danger" name="button">LOGOUT</button>
+  <button type="button" class="btn border-danger" name="button" onclick="location.href = '/'">LOGOUT</button>
 </div>
 
 <script>

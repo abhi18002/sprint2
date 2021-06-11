@@ -31,7 +31,7 @@ var faculty = db.collection("faculty");
 
 var room = [];
 
-
+var fr = [];
 
 const adm= [{username:'adm1',pwd:'log'},{username:'adm2',pwd:'log0'}]
 
@@ -52,11 +52,12 @@ rooms.find().forEach((room) => {
                 tempfac:tempfac
         }
       free.insertOne(o);
+      fr.push(o);
       }
     }
   }
-});
-
+} );
+console.log(free);
 }
 
 app.listen(3000,function(req,res){
@@ -134,7 +135,7 @@ res.render("reserve");
 function val(res,o){
   tempfac = o;
  freeS();
-res.render("adm",{adm:o,clist:clist,reserve:reserve,cancel:cancel,free:free});
+res.render("adm",{adm:o,clist:clist,reserve:reserve,cancel:cancel,free:fr});
 }
 
 function temp(res,o){
@@ -163,7 +164,7 @@ faculty.find(function(err, facs){
 });
 
 app.get("/noti",function(req,res){
-res.render("noti", {requests:request});
+res.render("noti", {reserve:reserve});
 });
 
 app.get("/cancel",function(req,res){
@@ -196,12 +197,12 @@ status: "Pending"}
 
 db.collection("reserve").insertOne(reqs);
 
-res.render("noti",{requests:s});
+res.render("noti",{reserve:reserve});
 });
 
 
 app.get("/set",function(req,res){
-res.render("set");
+res.render("set",{tempfac:tempfac});
 });
 
 

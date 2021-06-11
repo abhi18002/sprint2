@@ -43,7 +43,7 @@
       </div>
       <div class="vac-group">
         <label for="when">DATE:</label>
-        <input id="when" name="date"type="date" placeholder="dd/mm/yyyy"required />
+        <input id="when" name="date"type="date" placeholder="dd-mm-yyyy"required />
       </div>
       <div class="row">
         <button id="button-reserve" type="submit">
@@ -52,24 +52,5 @@
       </div>
     </form>
   </div>
-  <script>
- //    $(document).ready(function () {
- //
- // // Data Picker Initialization
- //   let $input = $('.datepicker').pickadate();
- //   let picker = $input.pickadate('picker');
- //   let date = new Date(1999, 1, 23);
- //   picker.set('select', date);
- //
- // });
- $(function () {
-   var yesterday = new Date((new Date()).valueOf()-1000*60*60*24);
-
-   $('#when').pickadate({
-     disable: [
-       { from: [0,0,0], to: yesterday }
-     ]
-   });
-});
-  </script>
+  
 </body>
