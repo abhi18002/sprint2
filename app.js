@@ -9,6 +9,9 @@ app.set('view engine', 'ejs');
 var mongoose = require('mongoose');
 var mongoDB = 'mongodb://127.0.0.1:27017/FacultyDB';
 var tempfac;
+const Vonage = require('@vonage/server-sdk')
+
+
 
 var reserve = [{ name: "D Venkataraman", type: "Lab",slot:5,cap:67,date: 2021, status: "Pending"},{name : "C Arun Kumar", type : "Cabin", slot : 3, cap : 46, date : 2000, status : "Pending"}];
 var clist = [{name: "C Arun Kumar", request : "CHANGE MY SECOND PERIOD TO THE 5th PERIOD"},{ name: "D Venkataraman",request:"Change my 5th period to 2nd period "}];
@@ -97,6 +100,30 @@ room.push(fac);    });
 res.render("occ",{rooms:room});
 });
 
+
+app.get("/fg",function(req,res){
+
+  const vonage = new Vonage({
+    apiKey: "fb760860",
+    apiSecret: "PDekdvX9NcNTMsrM"
+  })
+
+  const from = "AMRITA CLASS BOOKING"
+  const to = "917550398440"
+  const text = 'You have requested to change password'
+  vonage.message.sendSms(from, to, text, (err, responseData) => {
+      if (err) {
+          console.log(err);
+      } else {
+          if(responseData.messages[0]['status'] === "0") {
+              console.log("Message sent successfully.");
+          } else {
+              console.log(`Message failed with error: ${responseData.messages[0]['error-text']}`);
+          }
+      }
+  })
+  res.redirect("log");
+});
 
 
 app.get("/reserve",function(req,res){
@@ -192,9 +219,17 @@ res.render("time",{tempfac:tempfac});
 });
 
 app.get("/cpass",function(req,res){
+  var i = req.body.notif;
 res.render("cpass");
 });
 
+app.get("/about",function(req,res){
+  res.render("about");
+});
+
+app.get("/help",function(req,res){
+  res.sendFile(__dirname + "/help.html");
+});
 
 app.get("/reqC",function(req,res){
 
