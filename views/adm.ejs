@@ -38,7 +38,6 @@
                                 <th scope="row"><%=count%></th>
                                 <td><%=item.name%></td>
                                 <td><%= item.request%> </td>
-                                <td><a type="button" id="<%=i%>" class="btn btn-info" onclick="on()">Review</a></td>
                                 <td><button type="button"id="<%=i+1%>" class="btn btn-success"
                                   onclick="this.disabled=true;this.innerHTML='Accepted';<%item.status = 'Accepted';%>">Accept</button></td>
                                 <td><button type="button"id="<%=i+2%>"class="btn btn-danger" onclick="$(this).closest('tr').remove();<%item.status = 'Declined';%>">Decline</button></td>
@@ -67,7 +66,6 @@
           <th scope="row"><%=count%></th>
           <td><%=item.name%></td>
           <td><%= item.request%></td>
-          <td><a type="button" id="<%=i%>" class="btn btn-info" onclick='on()'>Review</a></td>
           <td><button type="button"id="<%=i+1%>" class="btn btn-success"
             onclick="this.disabled=true;this.innerHTML='Accepted';<%item.status = 'Accepted';%>">Accept</button></td>
           <td><button type="button"id="<%=i+2%>"class="btn btn-danger" onclick="$(this).closest('tr').remove();<%item.status = 'Declined';%>">Decline</button></td>
@@ -85,7 +83,8 @@
       <tr>
           <th scope="col">#</th>
           <th scope="col">Faculty</th>
-          <th scope="col">Request</th>
+          <th scope="col">Capacity</th>
+          <th scope="col">Slot</th>
           <th scope="col"></th>
           <th scope="col"></th>
           <th scope="col"></th>
@@ -96,7 +95,8 @@
       <tr>
           <th scope="row"><%=count%></th>
           <td><%=item.name%></td>
-          <td><%= item.request%></td>
+          <td><%= item.cap%></td>
+          <td><%= item.slot%></td>
           <td><a type="button" id="<%=i%>" onclick='on(this.id);'class="btn btn-info">Review</a></td>
           <td><button type="button"id="<%=i+1%>" class="btn btn-success"
     onclick="this.disabled=true;this.innerHTML='Accepted';<%item.status = 'Accepted';%> ">Accept</button></td>

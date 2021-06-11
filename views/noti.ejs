@@ -49,7 +49,7 @@ button:hover, a:hover {
 <br>
 <br>
 <br>
-<%  var count=1;reserve.forEach(function(reqs){ %>
+<%  var count=1;requests.forEach(function(reqs){ %>
 
 <div class="card">
   <h1>REQUEST <%=count%></h1>
@@ -58,7 +58,7 @@ button:hover, a:hover {
   <p>DATE <%=reqs.date%></p>
   <p>CAPACITY <%=reqs.cap%></p>
   <p>STATUS <%=reqs.status%></p>
-  <p><button onclick="">Cancel</button></p>
+  <p><button onclick="    $(this).closest('.card').remove();">Cancel</button></p>
 </div>
 <div class="gap">
 

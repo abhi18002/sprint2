@@ -24,15 +24,11 @@ var rooms =   db.collection("rooms");
 var request = db.collection("requests");
 var free = db.collection("freeslots");
 var faculty = db.collection("faculty");
-//
-// const clist = db.collection("clist");
-// const cancel = db.collection("cancel");
-// const reserve = db.collection("reserve");
+
 
 var room = [];
-
 var fr = [];
-
+var requests =[];
 const adm= [{username:'adm1',pwd:'log'},{username:'adm2',pwd:'log0'}]
 
 app.use(bodyParser.urlencoded({extended: true}));
@@ -123,7 +119,7 @@ app.get("/fg",function(req,res){
           }
       }
   })
-  res.redirect("log");
+  res.redirect("/log");
 });
 
 
@@ -196,8 +192,8 @@ date : req.body.date,
 status: "Pending"}
 
 db.collection("reserve").insertOne(reqs);
-
-res.render("noti",{reserve:reserve});
+requests.push(reqs);
+res.render("noti",{requests:requests});
 });
 
 
