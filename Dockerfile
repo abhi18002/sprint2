@@ -4,5 +4,4 @@
  WORKDIR /app
  COPY . .
  RUN yarn install --production
- RUN docker-compose up
  CMD ["node", "app.js"]
